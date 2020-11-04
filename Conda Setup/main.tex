@@ -1,0 +1,204 @@
+\documentclass{article}
+%\documentstyle[11pt,handout,psfig]{article}
+
+\usepackage{fullpage,amssymb,amsmath,tikz,forest,float,subcaption,braket}
+\usetikzlibrary{arrows.meta}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\forestset{
+    default preamble={
+        for tree={
+        	   font=\tiny,
+            base=bottom,
+            child anchor=north,
+            align=center,
+            s sep+=1.3cm,
+    straight edge/.style={
+        edge path={\noexpand\path[\forestoption{edge},thick,-{Latex}] 
+        (!u.parent anchor) -- (.child anchor);}
+    },
+    if n children={0}
+        {tier=word, draw, thick, rectangle}
+        {
+        		if n children={1}
+        		{draw, thick, rectangle, parent anchor=south}
+        		{draw, diamond, thick, aspect=2}
+        },
+    if n=1{%
+    		if n'=1
+    			{edge path={\noexpand\path[\forestoption{edge},thick,-{Latex}] 
+        			(!u.parent anchor) -| (.child anchor);}}
+        		{edge path={\noexpand\path[\forestoption{edge},thick,-{Latex}] 
+        			(!u.parent anchor) -| (.child anchor) node[pos=.2, above] {Y};}}
+        }{
+        edge path={\noexpand\path[\forestoption{edge},thick,-{Latex}] 
+        (!u.parent anchor) -| (.child anchor) node[pos=.2, above] {N};}
+        }
+        }
+    }
+}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+
+\usepackage[12pt]{extsizes}
+\usepackage{gensymb}
+\usepackage{graphicx}
+
+
+
+
+%These give really tight margins:
+%\setlength{\topmargin}{-0.3in}
+%\setlength{\textheight}{8.10in}
+%\setlength{\textwidth}{5.8in}
+%\setlength{\baselineskip}{0.1875in}
+%\addtolength{\leftmargin}{-2.775in}
+%\setlength{\footskip}{0.45in}
+%\setlength{\oddsidemargin}{0.5in}
+%\setlength{\evensidemargin}{0.5in}
+%%\setlength{\headsep}{0pt}
+%%\setlength{\headheight}{0pt}
+
+%\setlength{\topmargin}{-0.5in}
+\setlength{\textheight}{8in}
+%\setlength{\textwidth}{5.0in}
+%\setlength{\baselineskip}{0.1875in}
+%\addtolength{\leftmargin}{-2.775in}
+%\setlength{\footskip}{0.45in}
+%\setlength{\oddsidemargin}{0.5in}
+%\setlength{\evensidemargin}{0.5in}
+%%\setlength{\headsep}{0pt}
+%%\setlength{\headheight}{0pt}
+
+
+\markright{}
+\pagestyle{myheadings}
+
+\input{macros-Fall2018}
+\begin{document}
+\title{Conda Tutorial}
+%\author{}
+\date{}
+\maketitle
+
+
+\part*{What is Conda?}
+
+Conda is an open source package management system and environment management system that runs on Windows, macOS, and Linux. Conda quickly installs, runs and updates packages and their dependencies. Conda easily creates, saves, loads and switches between environments on your local computer. It was created for Python programs, but it can package and distribute software for any language. 
+
+Conda as a package manager helps you find and install packages. If you need a package that requires a different version of Python, you do not need to switch to a different environment manager, because conda is also an environment manager. With just a few commands, you can set up a totally separate environment to run that different version of Python, while continuing to run your usual version of Python in your normal environment.
+
+\section{Installation}
+
+The fastest way to obtain conda is to install Miniconda, a mini version of Anaconda that includes only conda and its dependencies. If you prefer to have conda plus over 7,500 open-source packages, install Anaconda.
+
+Here are some of the system requirements necessary for installation:
+\begin{itemize}
+  \item 32- or 64-bit computer
+  \item For Miniconda - 400 MB disk space
+  \item For Anaconda - Minimum 3GB disk space to download and install
+  \item Windows, macOS, or Linux
+\end{itemize}
+
+For download specific instructions, \href{https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html}{please refer to this link.}
+
+
+\textbf{For Windows}: Go to your search menu on Windows after installing Miniconda, and locate the Anaconda Command Prompt to run the commands below.
+\begin{center}
+   \includegraphics[scale=0.5]{acp.png} 
+\end{center}
+
+
+To verify the Conda download, please run: 
+\begin{lstlisting}[language=bash] 
+conda info
+\end{lstlisting}
+In case you have previously installed Conda or Anaconda, be sure to update them accordingly before moving onto step 2:
+\begin{lstlisting}[language=bash] 
+#Update to lastest version of Conda
+conda update -n base conda
+#Update all packages to the latest version of Anaconda
+conda update anaconda
+\end{lstlisting}
+
+\section{Creating and activating environment from YAML file}
+
+After you have installed Conda, we have provided a file called \textbf{environment.yml}. This YAML file will help you create a virtual environment with a specified name used for activation and install necessary dependencies for the coding assignments. Here is what an example environment.yml file looks like.
+\begin{center}
+\includegraphics[scale=0.75]{conda-update.png}
+\end{center}
+\textbf{Note: }Although there are multiple ways of completing the homework assignments, the libraries we provide you within the YAML file should be the only ones you reference in the completion of the coding assignments. 
+\textbf{For the remainder of this setup we will be using \textit{your-env-name} to specify the name of your environment. You can find the name of your virutal environment by looking for the name parameter within the environment.yml file.} 
+
+To create your environment from the YAML file please run: 
+\begin{lstlisting}[language=bash]
+conda env create --file environment.yml
+\end{lstlisting}
+Now to specify that the environment was installed correctly, please run the code below and you should see an environment name that matches with the name parameter in the environment.yml file:
+\begin{lstlisting}[language=bash]
+conda env list
+\end{lstlisting}
+
+Next, you will activate the created environment. To do so, you will need to to call the following command:
+\begin{lstlisting}[language=bash]
+conda activate <your-env-name>
+\end{lstlisting}
+
+Now in this environment, you will have all the relevant dependencies needed to complete the assignments. If you want to deactivate your environment please run:
+\begin{lstlisting}[language=bash]
+conda deactivate
+\end{lstlisting}
+ 
+\section{Converting Environment to Jupyter Notebook}
+When completing the assignments, it may be helpful to use a Jupyter Notebook as a scratchpad to help you debug or formulate potential solutions. Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. The first step to creating your Jupyter Notebook for the assignments is to activate your environment as follows:
+\begin{lstlisting}[language=bash]
+conda activate <your-env-name>
+\end{lstlisting}
+
+Next, in the active environment type:
+\begin{lstlisting}[language=bash]
+#install ipykernel
+conda install -c anaconda ipykernel
+#install the new kernel
+ipython kernel install --user --name=<your-env-name>
+\end{lstlisting}
+
+And last but not least, ensure to run the following command to launch your Jupyter Notebook in the active environment
+\begin{lstlisting}[language=bash]
+jupyter notebook
+\end{lstlisting}
+
+That command will take you to your Jupyter Notebook directory. When you hover over the \textbf{New} button in the top right hand corner, you should see you environment present as an option.
+\begin{center}
+   \includegraphics[]{p2.png} 
+\end{center}
+Go ahead and select it and it will create an empty Python Jupyter file where you can copy and paste assignment code or use it to formulate your thoughts. 
+
+In the event you would like to remove your environment from Jupyter, simply run the following code:
+\begin{lstlisting}[language=bash]
+jupyter kernelspec uninstall <your-env-name>
+\end{lstlisting}
+
+You are now equipped with all the tools to complete the coding assignments. For a list of the most useful Conda functions, \href{https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf}{please refer to this document}. 
+
+\section{Updating Existing Conda Environment}
+ If you plan on reutilizing the an existing Conda environment from a previous SCPD-AI course, we strongly recommend all students update their Conda environment upon starting or replace it with the new Conda environment as mentioned above. Below are steps to update your existing Conda environment in preparation for this course. 
+
+\begin{lstlisting}[language=bash]
+conda activate <your-env-name>
+conda env update --file environment.yml 
+\end{lstlisting}
+ 
+\end{document}

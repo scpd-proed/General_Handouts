@@ -1,0 +1,265 @@
+\newcommand{\newsec}{\section}
+\newcommand{\denselist}{\itemsep 0pt\partopsep 0pt}
+\newcommand{\bitem}{\begin{itemize}\denselist}
+\newcommand{\eitem}{\end{itemize}}
+\newcommand{\benum}{\begin{enumerate}\denselist}
+\newcommand{\eenum}{\end{enumerate}}
+
+\newcommand{\fig}[1]{\private{\begin{center}
+{\Large\bf ({#1})}
+\end{center}}}
+
+\newcommand{\cpsf}[1]{{\centerline{\psfig{#1}}}}
+\newcommand{\mytitle}[1]{\centerline{\LARGE\bf #1}}
+
+\newcommand{\myw}{{\bf w}}
+
+\newcommand{\mypar}[1]{\vspace{1ex}\noindent{\bf {#1}}}
+
+\def\thmcolon{\hspace{-.85em} {\bf :} }
+
+\newtheorem{THEOREM}{Theorem}[section]
+\newenvironment{theorem}{\begin{THEOREM} \thmcolon }%
+                        {\end{THEOREM}}
+\newtheorem{LEMMA}[THEOREM]{Lemma}
+\newenvironment{lemma}{\begin{LEMMA} \thmcolon }%
+                      {\end{LEMMA}}
+\newtheorem{COROLLARY}[THEOREM]{Corollary}
+\newenvironment{corollary}{\begin{COROLLARY} \thmcolon }%
+                          {\end{COROLLARY}}
+\newtheorem{PROPOSITION}[THEOREM]{Proposition}
+\newenvironment{proposition}{\begin{PROPOSITION} \thmcolon }%
+                            {\end{PROPOSITION}}
+\newtheorem{DEFINITION}[THEOREM]{Definition}
+\newenvironment{definition}{\begin{DEFINITION} \thmcolon \rm}%
+                            {\end{DEFINITION}}
+\newtheorem{CLAIM}[THEOREM]{Claim}
+\newenvironment{claim}{\begin{CLAIM} \thmcolon \rm}%
+                            {\end{CLAIM}}
+\newtheorem{EXAMPLE}[THEOREM]{Example}
+\newenvironment{example}{\begin{EXAMPLE} \thmcolon \rm}%
+                            {\end{EXAMPLE}}
+\newtheorem{REMARK}[THEOREM]{Remark}
+\newenvironment{remark}{\begin{REMARK} \thmcolon \rm}%
+                            {\end{REMARK}}
+%\newenvironment{proof}{\noindent {\bf Proof:} \hspace{.677em}}%
+%                      {}
+
+%theorem
+\newcommand{\thm}{\begin{theorem}}
+%lemma
+\newcommand{\lem}{\begin{lemma}}
+%proposition
+\newcommand{\pro}{\begin{proposition}}
+%definition
+\newcommand{\dfn}{\begin{definition}}
+%remark
+\newcommand{\rem}{\begin{remark}}
+%example
+\newcommand{\xam}{\begin{example}}
+%corollary
+\newcommand{\cor}{\begin{corollary}}
+%proof
+\newcommand{\prf}{\noindent{\bf Proof:} }
+%end theorem
+\newcommand{\ethm}{\end{theorem}}
+%end lemma
+\newcommand{\elem}{\end{lemma}}
+%end proposition
+\newcommand{\epro}{\end{proposition}}
+%end definition
+\newcommand{\edfn}{\bbox\end{definition}}
+%end remark
+\newcommand{\erem}{\bbox\end{remark}}
+%end example
+\newcommand{\exam}{\bbox\end{example}}
+%end corollary
+\newcommand{\ecor}{\end{corollary}}
+%end proof
+\newcommand{\eprf}{\bbox\vspace{0.1in}}
+%begin equation
+\newcommand{\beqn}{\begin{equation}}
+%end equation
+\newcommand{\eeqn}{\end{equation}}
+
+%\newcommand{\eqref}[1]{Eq.~\ref{#1}}
+
+\newcommand{\KB}{\mbox{\it KB\/}}
+\newcommand{\infers}{\vdash}
+\newcommand{\sat}{\models}
+\newcommand{\bbox}{\vrule height7pt width4pt depth1pt}
+
+\newcommand{\act}[1]{\stackrel{{#1}}{\rightarrow}}
+\newcommand{\at}[1]{^{(#1)}}
+
+\newcommand{\argmax}{{\rm argmax}}
+\newcommand{\V}{{\cal V}}
+\newcommand{\C}{{\cal C}}
+\newcommand{\calL}{{\cal L}}
+
+\newcommand{\rimp}{\Rightarrow}
+\newcommand{\dimp}{\Leftrightarrow}
+
+\newcommand{\nf}{\bar{f}}
+\newcommand{\ns}{\bar{s}}
+\newcommand{\na}{\bar{a}}
+\newcommand{\nh}{\bar{h}}
+\newcommand{\nr}{\bar{r}}
+
+
+\newcommand{\bX}{\mbox{\boldmath $X$}}
+\newcommand{\bY}{\mbox{\boldmath $Y$}}
+\newcommand{\bZ}{\mbox{\boldmath $Z$}}
+\newcommand{\bU}{\mbox{\boldmath $U$}}
+\newcommand{\bE}{\mbox{\boldmath $E$}}
+\newcommand{\bx}{\mbox{\boldmath $x$}}
+\newcommand{\be}{\mbox{\boldmath $e$}}
+\newcommand{\by}{\mbox{\boldmath $y$}}
+\newcommand{\bz}{\mbox{\boldmath $z$}}
+\newcommand{\bu}{\mbox{\boldmath $u$}}
+\newcommand{\bd}{\mbox{\boldmath $d$}}
+\newcommand{\smbx}{\mbox{\boldmath $\scriptstyle x$}}
+\newcommand{\smbd}{\mbox{\boldmath $\scriptstyle d$}}
+\newcommand{\smby}{\mbox{\boldmath $\scriptstyle y$}}
+\newcommand{\smbe}{\mbox{\boldmath $\scriptstyle e$}}
+
+\newcommand{\Parents}{\mbox{\it Parents\/}}
+\newcommand{\B}{{\cal B}}
+
+\newcommand{\word}[1]{\mbox{\it #1\/}}
+\newcommand{\Action}{\word{Action}}
+\newcommand{\Proposition}{\word{Proposition}}
+\newcommand{\true}{\word{true}}
+\newcommand{\false}{\word{false}}
+\newcommand{\Pre}{\word{Pre}}
+\newcommand{\Add}{\word{Add}}
+\newcommand{\Del}{\word{Del}}
+\newcommand{\Result}{\word{Result}}
+\newcommand{\Regress}{\word{Regress}}
+\newcommand{\Maintain}{\word{Maintain}}
+
+\newcommand{\bor}{\bigvee}
+\newcommand{\invert}[1]{{#1}^{-1}}
+
+\newcommand{\commentout}[1]{}
+
+\newcommand{\bmu}{\mbox{\boldmath $\mu$}}
+\newcommand{\btheta}{\mbox{\boldmath $\theta$}}
+\newcommand{\IR}{\mbox{$I\!\!R$}}
+
+\newcommand{\tval}[1]{{#1}^{1}}
+\newcommand{\fval}[1]{{#1}^{0}}
+
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\vecy}{{\vec{y}}}
+\renewcommand{\Re}{{\mathbb R}}
+
+\def\twofigbox#1#2{%
+\noindent\begin{minipage}{\textwidth}%
+\epsfxsize=0.35\maxfigwidth
+\noindent \epsffile{#1}\hfill
+\epsfxsize=0.35\maxfigwidth
+\epsffile{#2}\\
+\makebox[0.35\textwidth]{(a)}\hfill\makebox[0.35\textwidth]{(b)}%
+\end{minipage}}
+
+\def\twofigboxcd#1#2{%
+\noindent\begin{minipage}{\textwidth}%
+\epsfxsize=0.35\maxfigwidth
+\noindent \epsffile{#1}\hfill
+\epsfxsize=0.35\maxfigwidth
+\epsffile{#2}\\
+\makebox[0.35\textwidth]{(c)}\hfill\makebox[0.35\textwidth]{(d)}%
+\end{minipage}}
+
+\def\twofigboxnolabel#1#2{%
+\begin{figure}[h]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.75\linewidth]{#1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.75\linewidth]{#2}
+\end{minipage}
+\end{figure}
+}
+
+\def\threefigbox#1#2#3{%
+\noindent\begin{minipage}{\textwidth}%
+\epsfxsize=0.33\maxfigwidth
+\noindent \epsffile{#1}\hfill
+\epsfxsize=0.33\maxfigwidth
+\noindent \epsffile{#2}\hfill 
+\epsfxsize=0.33\maxfigwidth
+\epsffile{#3}\\
+\makebox[0.31\textwidth]{{\scriptsize (a)}}\hfill%
+\makebox[0.31\textwidth]{{\scriptsize (b)}}\hfill
+\makebox[0.31\textwidth]{{\scriptsize (c)}}%
+\smallskip
+\end{minipage}}
+
+
+\def\threefigbox#1#2#3{%
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.75\linewidth]{#1}
+  \caption{}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.75\linewidth]{#2}
+   \caption{}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.75\linewidth]{#3}
+   \caption{}
+\end{subfigure}
+\end{figure}
+}
+
+
+\def\threefigboxnolabel#1#2#3{%
+\centering
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.75\linewidth]{#1}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.75\linewidth]{#2}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.75\linewidth]{#3}
+\end{subfigure}
+\end{figure}
+}
+
+\newlength{\maxfigwidth}
+\setlength{\maxfigwidth}{\textwidth}
+%\def\captionsize {\footnotesize}
+\def\captionsize {}
+
+\newcommand{\xsi}{{x^{(i)}}}
+\newcommand{\ysi}{{y^{(i)}}}
+\newcommand{\wsi}{{w^{(i)}}}
+\newcommand{\esi}{{\epsilon^{(i)}}}
+\newcommand{\calN}{{\cal N}}
+\newcommand{\calX}{{\cal X}}
+\newcommand{\calY}{{\cal Y}}
+\newcommand{\ytil}{{\tilde{y}}}
+
+\newcommand{\beas}{\begin{eqnarray*}}
+\newcommand{\eeas}{\end{eqnarray*}}
+
+\newcommand{\Ber}{{\rm Bernoulli}}
+\newcommand{\Bernoulli}{{\rm Bernoulli}}
+\newcommand{\E}{{\rm E}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}

@@ -1,0 +1,178 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage[margin=0.5in]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+%\usetheme{Darmstadt}
+\title{CS229}
+\author{Probability Theory Review}
+\date{}
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+\frametitle{Elements of Probability}
+\pause 
+\begin{enumerate}
+\itemsep1em
+\item[] \textbf{Sample Space} $\Omega$
+\pause 
+\item[] \indent $\qquad \{HH, HT, TH, TT\}$
+\pause
+\item[] \textbf{Event} $A\subseteq \Omega$
+\pause  
+\item[] \indent $\qquad \{HH, HT\}$, \pause $\Omega$
+\pause  
+\item[] \textbf{Event Space} $\mathcal{F}$ 
+\pause 
+\item[] \textbf{Probability Measure} $P:\mathcal{F}\rightarrow\mathbb{R}$
+\begin{enumerate}
+\itemsep1em
+\pause 
+\item[] $P(A)\geq 0\quad \forall A\in\mathcal{F}$
+\pause
+\item[] $P(\Omega)=1$
+\pause
+\item[] If $A_1,A_2,...$ disjoint set of events ($A_i\cap A_j=\emptyset$ when $i\neq j$), then
+$$P\left(\bigcup_i A_i\right)=\sum_iP(A_i)$$
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Conditional Probability and Independence}
+\pause 
+\begin{enumerate}
+\itemsep3em
+\item[] Let $B$ be any event such that $P(B)\neq 0$.
+\pause 
+\item[] $P(A|B):=\frac{P(A\cap B)}{P(B)}$
+\pause 
+\item[] $A\perp B$ if and only if $P(A\cap B)=P(A)P(B)$
+\pause
+\item[] $A\perp B$ if and only if $P(A|B)=\frac{P(A\cap B)}{P(B)}=\frac{P(A)P(B)}{P(B)}=P(A)$
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Random Variables (RV)}
+\pause
+\begin{center}$\omega_0=HHHTHTTHTT$\end{center}
+\pause 
+\begin{enumerate}
+\itemsep2em
+\item[] A \textbf{RV} is $X:\Omega\rightarrow\mathbb{R}$
+\pause
+\item[] \indent $\qquad$ \# of heads: $X(\omega_0)=5$
+\pause
+\item[] \indent $\qquad$ \# of tosses until tails: $X(\omega_0)=4$
+\pause 
+\item[] $Val(X):=X(\Omega)$
+\pause 
+\item[] \indent $\qquad Val(X)=\{0,1,...,10\}$ 
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Cumulative Distribution Function (CDF)}
+\pause
+\begin{enumerate}
+\itemsep3em
+\item[] $F_X:\mathbb{R}\rightarrow[0, 1]$
+\pause
+\item[] \indent $\qquad F_X(x)=P(X\leq x)$\pause $:=P(\{\omega|X(\omega)\leq x\})$
+\pause 
+\item[] \includegraphics[width=2in]{cdf.png}
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Discrete vs. Continuous RV}
+\pause
+\begin{enumerate}
+\itemsep0.5em
+\item[] \textbf{Discrete RV}: $Val(X)$ is countable
+\pause
+\item[] $\qquad P(X=k):=P(\{\omega|X(\omega)=k\})$
+\pause
+\item[] $\qquad$Probability Mass Function (PMF): $p_X:Val(X)\rightarrow [0,1]$
+\pause 
+\item[] $\qquad\qquad p_X(x):=P(X=x)$
+\pause 
+\item[] $\qquad\qquad \underset{x\in Val(X)}{\sum}p_X(x)=1$
+\pause 
+\item[] \textbf{Continuous RV}: $Val(X)$ is uncountable
+\pause
+\item[] \indent $\qquad P(a\leq X\leq b):=P(\{\omega|a\leq X(\omega)\leq b\})$
+\pause 
+\item[] $\qquad$Probability Density Function (PDF): $f_X:\mathbb{R}\rightarrow\mathbb{R}$
+\pause 
+\item[] $\qquad\qquad f_X(x):=\frac{d}{dx}F_X(x)$
+\pause 
+\item[] $\qquad\qquad f_X(x)\neq P(X=x)$
+\pause 
+\item[] $\qquad\qquad \int_{-\infty}^{\infty}\underbrace{f_X(x)dx\pause}_{P(x\leq X\leq x+dx)}=1$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Expected Value and Variance}
+\pause 
+\begin{enumerate}
+\itemsep1em
+\item[] $g:\mathbb{R}\rightarrow\mathbb{R}$
+\pause 
+\item[] \textbf{Expected Value}
+\pause
+\item[] $\qquad$ Let $X$ be a discrete RV with PMF $p_X$.
+\pause 
+\item[] $\qquad\qquad \mathbb{E}[g(X)]:=\underset{x\in Val(X)}{\sum}g(x)p_X(x)$
+\pause 
+\item[] $\qquad$ Let $X$ be a continuous RV with PDF $f_X$.
+\pause 
+\item[] $\qquad\qquad \mathbb{E}[g(X)]:=\int_{-\infty}^{\infty}g(x)f_X(x)dx$
+\pause
+\item[] \textbf{Variance}
+\pause 
+\item[] $\qquad Var(X):=\mathbb{E}[(X-\mathbb{E}[X])^2]$\pause $ =\mathbb{E}[X^2]-\mathbb{E}[X]^2$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Example Distributions}
+\begin{center}
+\small
+$$\begin{array}{|l|l|c|c|}
+\hline
+\text{Distribution} & \text{PDF or PMF} & \text{Mean} & \text{Variance} \\ 
+\hline
+Bernoulli(p) & \left\{\begin{array}{ll}p,&\text{if }x=1\\1-p,&\text{if }x=0.\end{array}\right. & p & p(1-p) \\ 
+\hline
+Binomial(n,p) & \binom{n}{k}p^k(1-p)^{n-k}\text{ for }k=0,1,...,n & np & np(1-p) \\ 
+\hline
+Geometric(p) & p(1-p)^{k-1}\text{ for }k=1,2,... & \frac1p & \frac{1-p}{p^2} \\ 
+\hline
+Poisson(\lambda) & \frac{e^{-\lambda}\lambda^k}{k!}\text{ for }k=0,1,... & \lambda & \lambda \\ 
+\hline
+Uniform(a,b) & \frac{1}{b-a}\text{ for all } x\in(a,b) & \frac{a+b}{2} & \frac{(b-a)^2}{12} \\ 
+\hline
+Gaussian(\mu,\sigma^2) & \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\text{ for all } x\in(-\infty, \infty) & \mu & \sigma^2 \\ 
+\hline
+Exponential(\lambda) & \lambda e^{-\lambda x}\text{ for all } x\geq 0, \lambda\geq 0 & \frac{1}{\lambda} & \frac{1}{\lambda^2}\\
+\hline
+\end{array} $$
+\end{center}
+\end{frame}
+\begin{frame}
+\frametitle{Two Random Variables}
+\begin{enumerate}
+\itemsep2em
+\item $F_{XY}(x,y)=P(X\leq x,Y\leq y)$
+\item $p_{XY}(x,y)=P(X=x,Y=y)$
+\item $p_X(x)=\sum_yp_{XY}(x,y)$
+\item $f_{XY}(x,y)=\frac{\partial^2 F_{XY}(x,y)}{\partial x\partial y}$
+\item $f_X(x)=\int_{-\infty}^{\infty}f_{XY}(x,y)dy$
+\end{enumerate}
+\end{frame}
+
+\end{document}

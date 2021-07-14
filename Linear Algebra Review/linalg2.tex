@@ -195,14 +195,14 @@ Finally, expressing $A$ in terms of rows we get the final
 representation of the vector-matrix product,
 \begin{eqnarray*}
 y^T & = & x^T A \\
-    & = & \left [ \begin{array}{cccc}x_1 & x_2 & \cdots & x_n 
+    & = & \left [ \begin{array}{cccc}x_1 & x_2 & \cdots & x_m 
   \end{array} \right ] \left [ \begin{array}{ccc} \mbox{---} & a^T_1 & 
   \mbox{---} \\   \mbox{---} & a^T_2 &  \mbox{---} \\ & \vdots & \\
   \mbox{---} & a^T_m  &  \mbox{---} \end{array} \right ] \\ & & \\ 
 & = & x_1 \left [ \begin{array}{ccc} \mbox{---} & a^T_1 & \mbox{---}
   \end{array} \right ] + x_2 \left [ \begin{array}{ccc} \mbox{---} &
-    a^T_2 & \mbox{---} \end{array} \right ] + ... + x_n \left [
-    \begin{array}{ccc} \mbox{---} & a^T_n & \mbox{---} \end{array} \right ]
+    a^T_2 & \mbox{---} \end{array} \right ] + ... + x_m \left [
+    \begin{array}{ccc} \mbox{---} & a^T_m & \mbox{---} \end{array} \right ]
 \end{eqnarray*}
 so we see that $y^T$ is a linear combination of the \textit{rows} of
 $A$, where the coefficients for the linear combination are given by
@@ -262,7 +262,7 @@ C = AB = A \left [ \begin{array}{cccc} | & | &  & | \\ b^1 & b^2 &
       & | &  & | \end{array} \right ]. \label{eqn:1}
 \end{align}
 Here the $i$th column of $C$ is given by the matrix-vector product
-with the vector on the right, $c_i = A b_i$.  These matrix-vector
+with the vector on the right, $c^{i} = A b^{i}$.  These matrix-vector
 products can in turn be interpreted using both viewpoints given in the
 previous subsection.  Finally, we have the analogous viewpoint, where
 we represent $A$ by rows, and view the rows of $C$ as the
@@ -794,7 +794,7 @@ Note that,
 \[x^T A x = (x^T A x)^T = x^T A^T x = x^T\left(\frac{1}{2} A +
 \frac{1}{2}A^T\right)x,\]
 where the first equality follows from the fact that the transpose
-of a scalar is equal to itself, and the second equality follows
+of a scalar is equal to itself, and the third equality follows
 from the fact that we are averaging two quantities which are themselves equal.
 From this, we can conclude that 
 only the symmetric part of $A$ contributes to the quadratic
@@ -875,7 +875,7 @@ Intuitively, this definition
 means that multiplying $A$ by the vector $x$ results in a new vector
 that points in the same direction as $x$, but scaled by a factor
 $\lambda$.  Also note that for any eigenvector $x \in \mathbb{C}^n$,
-and scalar $t \in \mathbb{C}$, 
+and scalar $c \in \mathbb{C}$, 
 $A(cx) = cAx = c \lambda x = \lambda(cx)$, so $cx$ is also an
 eigenvector.   For this reason when we talk about ``the'' eigenvector
 associated with $\lambda$, we usually assume that the eigenvector is

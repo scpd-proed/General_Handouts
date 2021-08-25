@@ -1,0 +1,193 @@
+\documentclass[10pt,landscape]{article}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{color,graphicx,overpic}
+\usepackage{hyperref}
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+\pdfinfo{
+  /Title (Linux and Git Guide.pdf)
+  /Creator (TeX)
+  /Producer (pdfTeX 1.40.0)
+  /Author (Armando Banuelos)
+  /Subject (Linux and Git Guide)
+  /Keywords (pdflatex, latex,pdftex,tex)}
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.25in,right=.25in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+    }
+
+% Turn off header and footer
+\pagestyle{empty}
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+
+% Define BibTeX command
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+%My Environments
+\newtheorem{example}[section]{Example}
+% -----------------------------------------------------------------------
+
+\begin{document}
+% \raggedright
+% \footnotesize
+\begin{multicols}{2}
+
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\begin{center}
+     \Large{Linux and Git Guide} \\
+\end{center}
+
+\section{Git - Keeping Your Code Updated}
+
+Git is a software used for tracking changes in files and collaborative code development. 
+GitHub is a provider of Internet hosting for software development and version control using Git. \\
+
+Below is the recommended Git flow you should follow for assignment development. \\
+
+This guide assumes you have a GitHub account with token based authentication. If not, please follow this \href{https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent}{tutorial} to create an ssh key and link it to your GitHub account to perform Git actions. \\
+
+1. First start off by cloning a git repo to your local machine.
+\begin{lstlisting}[language=SQL]
+    git clone git@github.com:scpd-proed/<XCS-ASSIGNMENT-REPO>.git
+\end{lstlisting}
+
+2. Create a branch to do your own development
+\begin{lstlisting}[language=SQL]
+    git checkout -b <branch-name>
+\end{lstlisting}
+
+3. If CFs make updates to the assignment commit your unsaved changes
+\begin{lstlisting}[language=SQL]
+    git commit -am "<some message>"
+\end{lstlisting}
+
+4. Merge updates from the assignment to your local branch
+\begin{lstlisting}[language=SQL]
+    git pull origin master
+\end{lstlisting}
+
+After performing step 4, you may experience conflicts. To see which files are in conflict, please run
+\begin{lstlisting}[language=SQL]
+    git status
+\end{lstlisting}
+
+The files in conflict are those "Not staged for commit". Open these files in the editor of your choice and look for lines \texttt{<<<<} and \texttt{>>>>}.\\
+
+Once you have resolved the conflicts, run
+\begin{lstlisting}[language=SQL]
+    git add -A .
+\end{lstlisting}
+
+And lastly commit your updates to your branch
+\begin{lstlisting}[language=SQL]
+    git commit -am "<some message>"
+\end{lstlisting}
+
+Please DO NOT push your local branch changes to GitHub or create pull requests. This will expose your solution code from your development branch and is in violation of the honor code. 
+
+\section{Linux - Commands You Should Know}
+Linux is an open-source Unix-like operating system. All our assignments assume you have some understanding on how to run commands on Linux machines. \\
+
+Below we will go through popular Linux Commands you should know for assignment development.\\
+
+1. Listing directory (ls) - see files in your current directory
+\begin{lstlisting}[language=SQL]
+    ls
+\end{lstlisting}
+
+2. Changing directory (cd) - move to another directory
+\begin{lstlisting}[language=SQL]
+    cd /path/to/directory
+\end{lstlisting}
+
+3. Path Working Directory (pwd) - display pathname of current working directory
+\begin{lstlisting}[language=SQL]
+    pwd
+\end{lstlisting}
+
+4. Display file contents (cat)
+\begin{lstlisting}[language=SQL]
+    cat file.txt
+\end{lstlisting}
+
+5. Get a clear console window (clear)
+\begin{lstlisting}[language=SQL]
+    clear
+\end{lstlisting}
+
+6. Copying files (cp)
+\begin{lstlisting}[language=SQL]
+    cp source destination
+\end{lstlisting}
+
+7. Remove a file (rm)
+\begin{lstlisting}[language=SQL]
+    rm file.txt
+\end{lstlisting}
+
+8. Zipping up files (zip)
+\begin{lstlisting}[language=SQL]
+    zip myfile.zip filename.txt
+\end{lstlisting}
+
+9. Remote log into another machine (ssh) (will be useful for using Azure GPUs)
+\begin{lstlisting}[language=SQL]
+    ssh user@machine
+\end{lstlisting}
+
+10. Rename or move a file (mv)
+\begin{lstlisting}[language=SQL]
+    mv source destination 
+\end{lstlisting}
+
+
+\end{multicols}
+\end{document}

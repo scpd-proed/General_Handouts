@@ -102,12 +102,12 @@ Conda as a package manager helps you find and install packages. If you need a pa
 
 \section{Installation}
 
-The fastest way to obtain conda is to install Miniconda, a mini version of Anaconda that includes only conda and its dependencies. If you prefer to have conda plus over 7,500 open-source packages, install Anaconda.
+The fastest way to obtain conda is to install Miniconda, a mini version of Anaconda that includes only conda and its dependencies. If you would want to leverage your exotic CPU architecture (aarch64 including Apple Silicon, ppc64le) the best way would be to install Miniforge! If you prefer to have conda plus over 7,500 open-source packages, install Anaconda. 
 
 Here are some of the system requirements necessary for installation:
 \begin{itemize}
   \item 32- or 64-bit computer
-  \item For Miniconda - 400 MB disk space
+  \item For Miniconda/Miniforge - 400 MB disk space
   \item For Anaconda - Minimum 3GB disk space to download and install
   \item Windows, macOS, or Linux
 \end{itemize}
@@ -140,7 +140,7 @@ After you have installed Conda, we have provided a file called \textbf{environme
 \includegraphics[scale=0.75]{conda-update.png}
 \end{center}
 \textbf{Note: }Although there are multiple ways of completing the homework assignments, the libraries we provide you within the YAML file should be the only ones you reference in the completion of the coding assignments. 
-\textbf{For the remainder of this setup we will be using \textit{your-env-name} to specify the name of your environment (i.e. XCS229, XCS229ii, XCS221, etc) . You can find the name of your virutal environment by looking for the name parameter within the environment.yml file.} 
+\textbf{For the remainder of this setup we will be using \textit{your-env-name} to specify the name of your environment (i.e. XCS229, XCS221, etc) . You can find the name of your virtual environment by looking for the name parameter within the environment.yml file.} 
 
 To create your environment from the YAML file please run: 
 \begin{lstlisting}[language=bash]
